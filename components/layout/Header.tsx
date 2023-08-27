@@ -8,6 +8,8 @@ import { LucideLayers } from "lucide-react";
 import { ThemeSwitch } from "../theme-switch";
 import { Button } from "../ui/button";
 
+import { Link } from "react-scroll";
+
 export function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -37,25 +39,31 @@ export function Header() {
         </div>
 
         <nav className="hidden md:flex">
-          <ul className="flex gap-x-8 capitalize">
+          <ul className="flex gap-x-8">
             {navLinks.map(([name, target]) => {
               const nameFormatted = name !== "contact" && name;
               return (
                 <li key={name}>
-                  <a
-                    href={`#${target}`}
-                    className="pb-1 hover:border-b hover:text-primary"
+                  <Link
+                    to={target}
+                    href={`#`}
+                    spy={true}
+                    hashSpy={true}
+                    activeClass="active"
+                    className="pb-1 text-sm font-medium uppercase tracking-widest hover:border-b hover:text-primary"
                   >
                     {nameFormatted}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
           </ul>
         </nav>
 
-        <div className="flex items-center gap-x-2 md:gap-x-6">
-          <ThemeSwitch />
+        <div className="flex items-center gap-x-4">
+          <span className="hidden md:block">
+            <ThemeSwitch />
+          </span>
           <a href="#contact" className="hidden md:block">
             <Button size={"default"}>Contact</Button>
           </a>

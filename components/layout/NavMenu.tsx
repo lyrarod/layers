@@ -1,5 +1,7 @@
 import { navLinks } from ".";
+import { Link } from "react-scroll";
 import { LucideMenu, LucideX } from "lucide-react";
+import { ThemeSwitch } from "../theme-switch";
 
 type NavMenuProps = {
   menuIsOpen: boolean;
@@ -14,20 +16,32 @@ export function NavMenu({ menuIsOpen, toggleMenu }: NavMenuProps) {
   );
 
   return (
-    <div onClick={toggleMenu} className="relative flex md:hidden">
-      {icon}
+    <div className="relative flex md:hidden">
+      <span onClick={toggleMenu}>{icon}</span>
       <nav
         className={`${
           menuIsOpen
-            ? "visible right-0 top-10 opacity-100 duration-150"
-            : "invisible right-0 top-0 opacity-0 duration-150"
-        } absolute -z-10 rounded border bg-background`}
+            ? "visible right-1/2 top-8 origin-top-right scale-100 opacity-100 duration-300"
+            : "invisible right-1/2 top-8 origin-top-right scale-0 opacity-0 duration-300"
+        } absolute -z-10 min-h-full rounded border bg-background p-10`}
       >
-        <ul className="flex flex-col gap-y-4 p-8 capitalize tracking-wider">
+        <ul className="flex flex-col gap-y-4">
+          <ThemeSwitch />
+
           {navLinks.map(([name, target]) => {
             return (
-              <li key={name} className="border-b hover:text-primary">
-                <a href={`#${target}`}>{name}</a>
+              <li key={name} className="hover:text-primary">
+                <Link
+                  to={target}
+                  href="#"
+                  spy={true}
+                  hashSpy={true}
+                  onClick={toggleMenu}
+                  activeClass="active"
+                  className="text-sm font-semibold uppercase tracking-widest"
+                >
+                  {name}
+                </Link>
               </li>
             );
           })}

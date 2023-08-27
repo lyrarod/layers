@@ -51,9 +51,13 @@
 
 @layer base {
   * {
-    @apply border-border scroll-smooth duration-75;
+    @apply scroll-smooth border-border duration-75;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .active {
+    @apply border-b pb-1 text-primary;
   }
 }

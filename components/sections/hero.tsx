@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section
+      id="home"
       className={`flex min-h-screen items-center bg-hero-pattern bg-cover bg-fixed bg-top bg-no-repeat dark:bg-dark-hero-pattern md:pt-0`}
     >
       <div className="container relative overflow-hidden pt-20 md:pt-0">
@@ -36,7 +37,7 @@ export function Hero() {
                 <div className="mr-4 lg:mr-8">
                   <img
                     className="mx-auto mb-8 block h-32 w-full rounded-md object-cover sm:h-64"
-                    src="https://i.postimg.cc/PqrSRxDN/pexels-fauxels-3184357.jpg "
+                    src="https://i.postimg.cc/PqrSRxDN/pexels-fauxels-3184357.jpg"
                     alt=""
                   />
                   <img
@@ -53,7 +54,7 @@ export function Hero() {
                   />
                   <img
                     className="mx-auto mb-8 block h-32 w-full rounded-md object-cover sm:h-64"
-                    src="https://i.postimg.cc/qRMYPsDM/pexels-christina-morillo-1181605.jpg"
+                    src="https://i.postimg.cc/T33p51wy/pexels-photo-3182781.jpg"
                     alt=""
                   />
                 </div>
