@@ -4,7 +4,7 @@ export const Projects = () => {
       id="projects"
       className="flex items-center justify-center bg-secondary lg:h-screen"
     >
-      <div className="mx-auto max-w-7xl overflow-hidden px-4 py-20 pt-32">
+      <div className="mx-auto max-w-7xl overflow-hidden px-4 pt-32">
         <div className="flex flex-wrap">
           <div className="relative mb-10 w-full lg:mb-0 lg:mr-20 lg:w-2/5">
             <div className="absolute -top-6 left-6 z-10 hidden h-full w-full rounded bg-orange-400 lg:block"></div>

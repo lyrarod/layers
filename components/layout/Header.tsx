@@ -49,8 +49,9 @@ export function Header() {
                     href={`#`}
                     spy={true}
                     hashSpy={true}
+                    offset={0}
                     activeClass="active"
-                    className="pb-1 text-sm font-medium uppercase tracking-widest hover:border-b hover:text-primary"
+                    className="pb-1 text-sm font-medium uppercase tracking-widest transition hover:border-b hover:border-primary hover:text-primary"
                   >
                     {nameFormatted}
                   </Link>
@@ -67,7 +68,11 @@ export function Header() {
           <a href="#contact" className="hidden md:block">
             <Button size={"default"}>Contact</Button>
           </a>
-          <NavMenu menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
+          <NavMenu
+            menuIsOpen={menuIsOpen}
+            setMenuIsOpen={setMenuIsOpen}
+            toggleMenu={toggleMenu}
+          />
         </div>
       </div>
     </header>

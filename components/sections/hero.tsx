@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button";
-
 export function Hero() {
   return (
     <section
       id="home"
-      className={`flex min-h-screen items-center bg-hero-pattern bg-cover bg-fixed bg-top bg-no-repeat dark:bg-dark-hero-pattern md:pt-0`}
+      className={`flex min-h-screen items-center bg-hero-pattern bg-cover bg-fixed bg-top bg-no-repeat dark:bg-dark-hero-pattern`}
     >
-      <div className="container relative overflow-hidden pt-20 md:pt-0">
+      <div className="container relative overflow-hidden pt-16 sm:pt-32 lg:pt-0">
         <div className=" mx-auto mt-12 px-4">
           <div className="-mx-4 flex flex-wrap items-center justify-center">
             <div className="w-full px-4 lg:w-2/5">
@@ -33,7 +31,7 @@ export function Hero() {
               </div>
             </div>
             <div className="mt-20 w-full px-4 lg:mt-0 lg:w-2/5">
-              <div className="flex justify-center lg:justify-end">
+              <div className="flex justify-start lg:justify-end">
                 <div className="mr-4 lg:mr-8">
                   <img
                     className="mx-auto mb-8 block h-32 w-full rounded-md object-cover sm:h-64"

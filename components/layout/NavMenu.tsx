@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { navLinks } from ".";
 import { Link } from "react-scroll";
 import { LucideMenu, LucideX } from "lucide-react";
@@ -5,10 +6,33 @@ import { ThemeSwitch } from "../theme-switch";
 
 type NavMenuProps = {
   menuIsOpen: boolean;
+  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   toggleMenu: () => void;
 };
 
-export function NavMenu({ menuIsOpen, toggleMenu }: NavMenuProps) {
+export function NavMenu({
+  menuIsOpen,
+  setMenuIsOpen,
+  toggleMenu,
+}: NavMenuProps) {
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia(`(min-width:768px)`);
+
+    const handleChange = ({ matches }: MediaQueryListEvent) => {
+      if (matches) {
+        setMenuIsOpen(false);
+        document.body.style.overflowY = "auto";
+      }
+      // return console.log("matches:", matches);
+    };
+
+    mediaQueryList.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQueryList.removeEventListener("change", handleChange);
+    };
+  }, []);
+
   const icon = !menuIsOpen ? (
     <LucideMenu className="h-8 w-8 cursor-default md:cursor-pointer" />
   ) : (
@@ -16,7 +40,7 @@ export function NavMenu({ menuIsOpen, toggleMenu }: NavMenuProps) {
   );
 
   return (
-    <div className="relative flex md:hidden">
+    <div className={`relative flex md:hidden`}>
       <span onClick={toggleMenu}>{icon}</span>
       <nav
         className={`${

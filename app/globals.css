@@ -56,8 +56,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
 
+@layer utilities {
   .active {
-    @apply border-b pb-1 text-primary;
+    @apply border-b border-primary pb-1 text-primary;
   }
 }
