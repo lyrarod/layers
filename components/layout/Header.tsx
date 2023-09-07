@@ -13,23 +13,12 @@ import { Link } from "react-scroll";
 export function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuIsOpen((prevState) => !prevState);
-
-    menuIsOpen
-      ? (document.body.style.overflowY = "auto")
-      : (document.body.style.overflowY = "hidden");
-  };
+  const toggleMenu = () => setMenuIsOpen((prevState) => !prevState);
 
   return (
     <header className="fixed top-0 z-50 flex h-20 w-full border-b bg-background/75 backdrop-blur-md md:h-24">
       <div className="container flex items-center justify-between">
-        <div
-          onClick={() => {
-            setMenuIsOpen(false);
-            document.body.style.overflowY = "auto";
-          }}
-        >
+        <div onClick={() => setMenuIsOpen(false)}>
           <a href="#" className="cursor-default md:cursor-pointer">
             <strong className="flex items-center gap-x-2 text-2xl md:gap-x-3 md:text-3xl">
               <LucideLayers className="h-8 w-8 text-primary md:h-10 md:w-10" />

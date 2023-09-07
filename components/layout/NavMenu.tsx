@@ -16,6 +16,14 @@ export function NavMenu({
   toggleMenu,
 }: NavMenuProps) {
   useEffect(() => {
+    if (menuIsOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [menuIsOpen]);
+
+  useEffect(() => {
     const mediaQueryList = window.matchMedia(`(min-width:768px)`);
 
     const handleChange = ({ matches }: MediaQueryListEvent) => {
@@ -23,7 +31,6 @@ export function NavMenu({
         setMenuIsOpen(false);
         document.body.style.overflowY = "auto";
       }
-      // return console.log("matches:", matches);
     };
 
     mediaQueryList.addEventListener("change", handleChange);
@@ -50,7 +57,9 @@ export function NavMenu({
         } absolute -z-10 min-h-full rounded border bg-background p-10`}
       >
         <ul className="flex flex-col gap-y-4">
-          <ThemeSwitch />
+          <span onClick={toggleMenu}>
+            <ThemeSwitch />
+          </span>
 
           {navLinks.map(([name, target]) => {
             return (
